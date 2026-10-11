@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>For You ୨୧</title>
+
+
+<!-- GOOGLE FONT -->
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet">
+
+
+<style>
+
+/* =====================================
+   BASIC
+===================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#fff8fa;
+    color:#4b3a40;
+    font-family:'Poppins', sans-serif;
+    overflow-x:hidden;
+}
+
+
+/* =====================================
+   OPENING SCREEN
+===================================== */
+
+#opening{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            #ffdce7 0%,
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            #e9e0ff 0%,
+            transparent 30%
+        ),
+
+        #fff8fa;
+
+    z-index:9999;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+#opening.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+}
+
+
+.opening-content{
+
+    padding:30px;
+
+    animation:
+        openingFade 1.5s ease;
+
+}
+
+
+.opening-small{
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#b88b9a;
+
+    margin-bottom:25px;
+
+}
+
+
+.opening-title{
+
+    font-family:
+        'DM Serif Display',
+        serif;
+
+    font-size:
+        clamp(
+            50px,
+            13vw,
+            90px
+        );
+
+    font-weight:normal;
+
+    color:#5a414a;
+
+    margin-bottom:25px;
+
+}
+
+
+.tap-text{
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    color:#8f717b;
+
+    animation:
+        blink 2s infinite ease-in-out,
+        float 2s infinite ease-in-out;
+
+}
+
+
+.tap-heart{
+
+    margin-top:25px;
+
+    font-size:25px;
+
+    color:#b88b9a;
+
+    animation:
+        heartbeat 1.8s infinite;
+
+}
+
+
+/* =====================================
+   AUDIO
+===================================== */
+
+audio{
+    display:none;
+}
+
+
+/* =====================================
+   HERO
+===================================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px 25px;
+
+    position:relative;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            #ffdce7 0%,
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            #e9e0ff 0%,
+            transparent 30%
+        ),
+
+        #fff8fa;
+
+}
+
+
+.hero-content{
+
+    max-width:700px;
+
+    animation:
+        fadeUp 1.5s ease;
+
+}
+
+
+.small-title{
+
+    font-size:12px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#b88b9a;
+
+    margin-bottom:20px;
+
+}
+
+
+.hero h1{
+
+    font-family:
+        'DM Serif Display',
+        serif;
+
+    font-size:
+        clamp(
+            55px,
+            13vw,
+            100px
+        );
+
+    font-weight:normal;
+
+    line-height:1;
+
+    color:#5a414a;
+
+}
+
+
+.hero p{
+
+    margin-top:28px;
+
+    font-size:15px;
+
+    line-height:2;
+
+    color:#806c73;
+
+}
+
+
+.scroll{
+
+    margin-top:55px;
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    color:#aa8792;
+
+    animation:
+        float 2s infinite ease-in-out;
+
+}
+
+
+/* =====================================
+   TEXT SECTION
+===================================== */
+
+.section{
+
+    max-width:750px;
+
+    margin:auto;
+
+    padding:120px 25px;
+
+}
+
+
+.section.center{
+
+    text-align:center;
+
+}
+
+
+.number{
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    color:#c495a5;
+
+    margin-bottom:17px;
+
+}
+
+
+.section h2{
+
+    font-family:
+        'DM Serif Display',
+        serif;
+
+    font-size:
+        clamp(
+            38px,
+            8vw,
+            58px
+        );
+
+    font-weight:normal;
+
+    color:#5a414a;
+
+    margin-bottom:30px;
+
+}
+
+
+.section p{
+
+    font-size:15px;
+
+    line-height:2.1;
+
+    color:#725e66;
+
+}
+
+
+/* =====================================
+   SINGLE PHOTO
+===================================== */
+
+.photo-section{
+
+    padding:70px 20px;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+.photo-frame{
+
+    width:min(
+        600px,
+        90vw
+    );
+
+    background:white;
+
+    padding:12px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(
+            90,
+            65,
+            74,
+            .12
+        );
+
+    transform:rotate(-1.5deg);
+
+    transition:.5s ease;
+
+}
+
+
+.photo-frame:hover{
+
+    transform:
+        rotate(0deg)
+        scale(1.02);
+
+}
+
+
+.photo-frame img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+
+.caption{
+
+    text-align:center;
+
+    padding:
+        16px
+        10px
+        8px;
+
+    font-size:12px;
+
+    color:#927680;
+
+    font-style:italic;
+
+}
+
+
+/* =====================================
+   POLAROID
+===================================== */
+
+.photos{
+
+    max-width:850px;
+
+    margin:auto;
+
+    padding:70px 20px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:35px;
+
+}
+
+
+.polaroid{
+
+    background:white;
+
+    padding:
+        10px
+        10px
+        20px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(
+            90,
+            65,
+            74,
+            .10
+        );
+
+}
+
+
+.polaroid:nth-child(1){
+
+    transform:rotate(-3deg);
+
+}
+
+
+.polaroid:nth-child(2){
+
+    transform:rotate(3deg);
+
+}
+
+
+.polaroid img{
+
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+}
+
+
+.polaroid p{
+
+    text-align:center;
+
+    margin-top:13px;
+
+    font-size:12px;
+
+    color:#927680;
+
+}
+
+
+/* =====================================
+   QUOTE
+===================================== */
+
+.quote{
+
+    min-height:65vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:80px 30px;
+
+    text-align:center;
+
+    background:#f6e9ee;
+
+}
+
+
+.quote p{
+
+    max-width:680px;
+
+    font-family:
+        'DM Serif Display',
+        serif;
+
+    font-size:
+        clamp(
+            30px,
+            6vw,
+            48px
+        );
+
+    line-height:1.45;
+
+    color:#654c55;
+
+}
+
+
+/* =====================================
+   BIG PHOTO
+===================================== */
+
+.big-photo{
+
+    padding:100px 20px;
+
+}
+
+
+.big-photo img{
+
+    width:min(
+        800px,
+        90vw
+    );
+
+    display:block;
+
+    margin:auto;
+
+    box-shadow:
+        0 25px 60px
+        rgba(
+            70,
+            40,
+            50,
+            .15
+        );
+
+}
+
+
+/* =====================================
+   FINAL
+===================================== */
+
+.final{
+
+    min-height:90vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:50px 25px;
+
+}
+
+
+.final-content{
+
+    max-width:650px;
+
+}
+
+
+.final h2{
+
+    font-family:
+        'DM Serif Display',
+        serif;
+
+    font-size:
+        clamp(
+            45px,
+            10vw,
+            75px
+        );
+
+    font-weight:normal;
+
+    color:#5a414a;
+
+}
+
+
+.final p{
+
+    margin-top:28px;
+
+    line-height:2.1;
+
+    font-size:15px;
+
+    color:#725e66;
+
+}
+
+
+.heart{
+
+    font-size:38px;
+
+    margin-top:40px;
+
+    animation:
+        heartbeat 1.8s infinite;
+
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer{
+
+    text-align:center;
+
+    padding:35px;
+
+    font-size:11px;
+
+    color:#aa929a;
+
+}
+
+
+/* =====================================
+   ANIMATIONS
+===================================== */
+
+@keyframes openingFade{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes float{
+
+    0%,100%{
+
+        transform:
+            translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+            translateY(9px);
+
+    }
+
+}
+
+
+@keyframes heartbeat{
+
+    0%,100%{
+
+        transform:
+            scale(1);
+
+    }
+
+    50%{
+
+        transform:
+            scale(1.18);
+
+    }
+
+}
+
+
+@keyframes blink{
+
+    0%,100%{
+
+        opacity:.45;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media(max-width:600px){
+
+    .section{
+
+        padding:
+            90px 25px;
+
+    }
+
+
+    .photos{
+
+        grid-template-columns:1fr;
+
+        gap:45px;
+
+    }
+
+
+    .polaroid:nth-child(1),
+    .polaroid:nth-child(2){
+
+        transform:
+            rotate(0deg);
+
+    }
+
+
+    .photo-frame{
+
+        transform:
+            rotate(0deg);
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     OPENING
+===================================== -->
+
+<div id="opening">
+
+    <div class="opening-content">
+
+        <div class="opening-small">
+            something for you
+        </div>
+
+        <div class="opening-title">
+            For You.
+        </div>
+
+        <div class="tap-text">
+            TAP ANYWHERE TO BEGIN
+        </div>
+
+        <div class="tap-heart">
+            ୨୧
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================
+     MUSIC
+===================================== -->
+
+<audio id="bgMusic" loop>
+
+    <source
+        src="/Sal Priadi - Gala bunga matahari Lirik Lagu.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            a little something
+        </div>
+
+        <h1>
+            For You.
+        </h1>
+
+        <p>
+
+            Ada beberapa hal yang mungkin
+            lebih mudah dituliskan
+            daripada diucapkan.
+
+        </p>
+
+        <div class="scroll">
+            SCROLL ↓
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     SECTION 01
+===================================== -->
+
+<section class="section">
+
+    <div class="number">
+        01
+    </div>
+
+    <h2>
+        heyow
+    </h2>
+
+    <p>
+
+        Maaf ganggu waktu kamu lagi yaa, sebenarnya masih ada banyak hal yang pengen aku bilang waktu terakhir kita ngomong itu tapi ga keluar samsek karna tiap kali ngomong sama devon itu bawaannya senyum terus🌻 DAN waktu itu aku masih kesal soal devon yang matiin api + unfoll tt + ga cakapan lagi. 
+
+        <br><br>
+
+        Aku mau minta maaf soal semua semuanya🙏 maaf kalau devon merasa ga dihargai, maaf karena aku sempat ngatain devon, dan maaf aku baru ngomongin ini sekarang🙏. Karena kita sama sama punya ego, dan baru sekarang aku berusaha nurunin ego & rasa kesal sama devon apalagi devon pikir fae suka sama misa dan kami udah dekat (wth?) 
+    </p>
+
+</section>
+
+
+<!-- =====================================
+     PHOTO 01
+===================================== -->
+
+<section class="photo-section">
+
+    <div class="photo-frame">
+
+        <img
+            src="/2a24801e43d0cf891f8bc93484a6ae4c.jpg"
+            alt="Our memory">
+
+        <div class="caption">
+            gws ya kita
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     SECTION 02
+===================================== -->
+
+<section class="section center">
+
+    <div class="number">
+        02
+    </div>
+
+    <h2>
+       What happened to us? 
+    </h2>
+
+    <p>
+
+       Deym ini kejadian udah lama banget tapii dari sepahamanku, devon matiin api karna misa dekat sama fae waktu bazar (cmiiw). Okey, memang benar misa dekat sama fae waktu bazar itu, tapi kenapa bisa dekat gitu? Devon sering bilang kalo devon itu cuma bermuka dua sama 'mereka' dan fae juga lakuin itu ke misa jadi apa yang devon rasain waktu fae didekatin misa itu, kayak gitu juga yang fae rasain tiap devon sama 'mereka'. Fae sendiri bicara atau ngobrol sama misa hanya di sekolah, di luar itu kami jarang bahkan belakangan ini kami ga pernah chatan (tempat kami chatan hanya di WA karna dia ga punya ig dan tiktok), fae ga punya aplikasi lain tempat kami chatan ke dia ga seperti devon ke 'mereka', fae juga ga pernah nyentuh fisiknya misa ga seperti 'mereka' ke devon, fae bahkan ga pernah hang out bareng misa ga seperti devon dan 'mereka'.
+
+        <br><br>
+
+        Iya, fae sempat ga suka sama tingkah kalian tapi sekarang udah ga lagi kok, walaupun devon sekarang benci sama fae, aku ga benci sama devon dan selalu berharap kita bisa bicara kayak dulu lagi. Memang benar misa nyoba dekatin aku lagi, dan juga benar soal misa yang duduk samping fae waktu gereja tapi lanang manapun yang di samping fae, isi doa fae tetap tentang devon😇 lagian buat apa aku maksa buat suka ke orang yang ga aku suka? Hilangin ilfeel ke orang itu susah. Dan aku pernah bilang gini kan, 
+
+    </p>
+
+</section>
+
+
+<!-- =====================================
+     PHOTOS
+===================================== -->
+
+<section class="photos">
+
+    <div class="polaroid">
+
+        <img
+            src="/IMG_20261010_230745.jpg"
+            alt="Memory">
+
+        <p>
+          still the same 
+        </p>
+
+    </div>
+
+
+    <div class="polaroid">
+
+        <img
+            src="/IMG_20261010_230807.jpg"
+            alt="Memory">
+
+        <p>
+            another one
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     QUOTE
+===================================== -->
+
+<section class="quote">
+
+    <p>
+
+        “Not every meaningful story needs a perfect ending. Some are beautiful simply because they happened.”
+
+    </p>
+
+</section>
+
+
+<!-- =====================================
+     SECTION 03
+===================================== -->
+
+<section class="section">
+
+    <div class="number">
+        03
+    </div>
+
+    <h2>
+        umm..
+    </h2>
+
+    <p>
+
+        Jujurly fae kadang stalking akun devon lewat akun teman yang lain hehe🤡 maaf ya, devon jadi galau gitu wkwk😭 dulu waktu devon unfoll akun tiktok fae, barulah fae unfoll devon di sec acc ig fae, dan sekarang devon udah unfoll first acc ig fae🥰 ga tau kenapa tapi gappa deh.
+        <br><br>
+
+        Salah satu alasan fae dulu bikin sec acc itu karna fae pengen posting foto diri sendiri dan lebih terbuka di sana supaya setidaknya devon bisa lihat fae lebih dari 'mereka' tapi tetap aja aku masih kalah ya😹. And i've never cut my hair this short before🙈. Maafin sifat fae yang selalu insecure yaa, cuz i always wanted to be as pretty as them. Terlebih teman devon yang punya foto profil wa yang mirip dengan devon itu (deym she's so pretty) yang sekarang devon sering ngobrol sama dia dan bikin study group bareng (?) 
+        <br><br>
+
+        Jadi, sekali lagi fae minta maaf sudah berlaku buruk dan juga terimakasih banyak sudah jadi bagian dan warna yang indah dalam cerita hidup fae✨
+        
+
+    </p>
+
+</section>
+
+
+<!-- =====================================
+     PHOTO 04
+===================================== -->
+
+<section class="big-photo">
+
+    <img
+        src="/IMG_20261011_000256.jpg"
+        alt="A special memory">
+
+</section>
+
+
+<!-- =====================================
+     FINAL
+===================================== -->
+
+<section class="final">
+
+    <div class="final-content">
+
+        <h2>
+
+            Thank you
+            <br>
+            for being here.
+
+        </h2>
+
+        <p>
+
+            Mungkin kita udah ga bisa diselamatin, tapi fae ga benci devon, semoga devon juga gitu dan semoga kita bisa tetap ketemu lagi di masa depan🚀 dan jugaa semoga kamu dilimpahi berkat dan sukacita dari Tuhan, serta semoga kamu melakukan yang terbaik di TKA maupun ujian" lainnya, Gbu😇.
+            
+             Satu lagi, sebenarnya dari tugas seni kemarin aku udah buatin ganci buat devon sih (fae jahit sendiri jadi agak berantakan😺) tapi takut ngasihnya manatau bakalan dibuang kan sia"🤌. Dan jugaa apa boleh fae follow lagi akun devon? Kalau engga juga gapapa kokk🙏🙏
+
+        </p>
+
+        <div class="heart">
+            sekian, terimakasih🌻✨
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    Kalau ada typo maafin yaw
+
+</footer>
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
+<script>
+
+/* =====================================
+   OPENING + MUSIC
+===================================== */
+
+const music =
+    document.getElementById("bgMusic");
+
+const opening =
+    document.getElementById("opening");
+
+
+opening.addEventListener("click", function(){
+
+    /*
+       Volume musik
+    */
+
+    music.volume = 0.7;
+
+
+    /*
+       Mulai musik setelah
+       pengguna melakukan TAP
+    */
+
+    music.play()
+        .then(function(){
+
+            console.log(
+                "Music berhasil dimainkan."
+            );
+
+        })
+        .catch(function(error){
+
+            console.log(
+                "Music gagal dimainkan:",
+                error
+            );
+
+        });
+
+
+    /*
+       Hilangkan opening
+    */
+
+    opening.classList.add("hide");
+
+});
+
+
+/* =====================================
+   SCROLL ANIMATION
+===================================== */
+
+const sections =
+    document.querySelectorAll(
+        ".section, " +
+        ".photo-frame, " +
+        ".polaroid, " +
+        ".quote, " +
+        ".big-photo"
+    );
+
+
+const observer =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if(
+                        entry.isIntersecting
+                    ){
+
+                        entry.target.style.opacity =
+                            "1";
+
+                        entry.target.style.transform =
+                            "translateY(0)";
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold:.15
+        }
+
+    );
+
+
+sections.forEach(
+    element => {
+
+        element.style.opacity =
+            "0";
+
+        element.style.transform =
+            "translateY(35px)";
+
+        element.style.transition =
+            "opacity 1s ease, " +
+            "transform 1s ease";
+
+        observer.observe(
+            element
+        );
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
